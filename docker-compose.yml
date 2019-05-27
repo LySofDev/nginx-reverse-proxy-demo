@@ -1,0 +1,14 @@
+version: '3.2'
+
+services:
+
+  mock-json-service:
+    build: ./mock-json-service
+    command: flask run --host=0.0.0.0
+    environment:
+      - "FLASK_APP=app.py"
+    ports:
+      - "9400:5000"
+    volumes:
+      - ./mock-json-service:/usr/src/app
+    working_dir: /usr/src/app
